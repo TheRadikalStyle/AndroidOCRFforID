@@ -34,11 +34,11 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
-import android.support.annotation.NonNull;
-import android.support.design.widget.Snackbar;
-import android.support.percent.PercentRelativeLayout;
-import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import com.google.android.material.snackbar.Snackbar;
+import androidx.percentlayout.widget.PercentRelativeLayout;
+import androidx.core.app.ActivityCompat;
+import androidx.appcompat.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.SparseArray;
@@ -126,7 +126,7 @@ public final class OcrIdActivity extends AppCompatActivity implements DocumentId
      * Create a file Uri for saving an image
      */
     private static Uri getOutputMediaFileUri() {
-        return Uri.fromFile(getOutputMediaFile());
+         return Uri.fromFile(getOutputMediaFile());
     }
 
     /**
@@ -323,9 +323,9 @@ public final class OcrIdActivity extends AppCompatActivity implements DocumentId
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (mPreview != null) {
+        /*if (mPreview != null) {
             mPreview.release();
-        }
+        }*/
     }
 
     /**

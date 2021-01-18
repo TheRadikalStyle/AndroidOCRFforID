@@ -65,7 +65,7 @@
         android:layout_marginTop="16dp" />
 
 
-    <android.support.percent.PercentRelativeLayout
+    <androidx.percentlayout.widget.PercentRelativeLayout
         android:id="@+id/rl_view_detect"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -123,9 +123,9 @@
             android:layout_toEndOf="@+id/left"
             android:layout_below="@+id/view_detect"/>
 
-    </android.support.percent.PercentRelativeLayout>
+    </androidx.percentlayout.widget.PercentRelativeLayout>
 
-    <android.support.percent.PercentRelativeLayout
+    <androidx.percentlayout.widget.PercentRelativeLayout
         android:id="@+id/rl_ife_view_front"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -183,9 +183,9 @@
             android:layout_toEndOf="@+id/left1"
             android:layout_below="@+id/ife_view_front"/>
 
-    </android.support.percent.PercentRelativeLayout>
+    </androidx.percentlayout.widget.PercentRelativeLayout>
 
-    <android.support.percent.PercentRelativeLayout
+    <androidx.percentlayout.widget.PercentRelativeLayout
         android:id="@+id/rl_ife_view_back"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -244,9 +244,9 @@
             android:layout_toEndOf="@+id/left2"
             android:layout_below="@+id/ife_view_back"/>
 
-    </android.support.percent.PercentRelativeLayout>
+    </androidx.percentlayout.widget.PercentRelativeLayout>
 
-    <android.support.percent.PercentRelativeLayout
+    <androidx.percentlayout.widget.PercentRelativeLayout
         android:id="@+id/rl_ine_view_back"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -305,7 +305,7 @@
             android:layout_toEndOf="@+id/left3"
             android:layout_below="@+id/ine_view_back"/>
 
-    </android.support.percent.PercentRelativeLayout>
+    </androidx.percentlayout.widget.PercentRelativeLayout>
 
     <Button
         android:layout_width="60dp"

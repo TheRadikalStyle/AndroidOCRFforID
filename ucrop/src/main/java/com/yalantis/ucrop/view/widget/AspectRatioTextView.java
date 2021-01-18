@@ -8,22 +8,27 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.os.Build;
-import android.support.annotation.ColorInt;
-import android.support.annotation.NonNull;
-import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.Gravity;
-import android.widget.TextView;
 
 import com.yalantis.ucrop.R;
+import com.yalantis.ucrop.model.AspectRatio;
 import com.yalantis.ucrop.view.CropImageView;
+
+import java.util.Locale;
+
+import androidx.annotation.ColorInt;
+import androidx.annotation.NonNull;
+import androidx.appcompat.widget.AppCompatTextView;
+import androidx.core.content.ContextCompat;
 
 /**
  * Created by Oleksii Shliama (https://github.com/shliama).
  */
-public class AspectRatioTextView extends TextView {
+public class AspectRatioTextView extends AppCompatTextView {
 
+    private final float MARGIN_MULTIPLIER = 1.5f;
     private final Rect mCanvasClipBounds = new Rect();
     private Paint mDotPaint;
     private int mDotSize;
@@ -40,15 +45,9 @@ public class AspectRatioTextView extends TextView {
         this(context, attrs, 0);
     }
 
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public AspectRatioTextView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.ucrop_AspectRatioTextView);
-        init(a);
-    }
-
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public AspectRatioTextView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.ucrop_AspectRatioTextView);
         init(a);
     }
@@ -60,6 +59,20 @@ public class AspectRatioTextView extends TextView {
     public void setActiveColor(@ColorInt int activeColor) {
         applyActiveColor(activeColor);
         invalidate();
+    }
+
+    public void setAspectRatio(@NonNull AspectRatio aspectRatio) {
+        mAspectRatioTitle = aspectRatio.getAspectRatioTitle();
+        mAspectRatioX = aspectRatio.getAspectRatioX();
+        mAspectRatioY = aspectRatio.getAspectRatioY();
+
+        if (mAspectRatioX == CropImageView.SOURCE_IMAGE_ASPECT_RATIO || mAspectRatioY == CropImageView.SOURCE_IMAGE_ASPECT_RATIO) {
+            mAspectRatio = CropImageView.SOURCE_IMAGE_ASPECT_RATIO;
+        } else {
+            mAspectRatio = mAspectRatioX / mAspectRatioY;
+        }
+
+        setTitle();
     }
 
     public float getAspectRatio(boolean toggleRatio) {
@@ -76,8 +89,11 @@ public class AspectRatioTextView extends TextView {
 
         if (isSelected()) {
             canvas.getClipBounds(mCanvasClipBounds);
-            canvas.drawCircle((mCanvasClipBounds.right - mCanvasClipBounds.left) / 2.0f, mCanvasClipBounds.bottom - mDotSize,
-                    mDotSize / 2, mDotPaint);
+
+            float x = (mCanvasClipBounds.right - mCanvasClipBounds.left) / 2.0f;
+            float y = (mCanvasClipBounds.bottom - mCanvasClipBounds.top / 2f) - mDotSize * MARGIN_MULTIPLIER;
+
+            canvas.drawCircle(x, y, mDotSize / 2f, mDotPaint);
         }
     }
 
@@ -139,7 +155,7 @@ public class AspectRatioTextView extends TextView {
         if (!TextUtils.isEmpty(mAspectRatioTitle)) {
             setText(mAspectRatioTitle);
         } else {
-            setText(String.format("%d:%d", (int) mAspectRatioX, (int) mAspectRatioY));
+            setText(String.format(Locale.US, "%d:%d", (int) mAspectRatioX, (int) mAspectRatioY));
         }
     }
 

@@ -3,11 +3,12 @@ package mx.brandonvargas.androidocr;
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import mx.brandonvargas.ocrforid.OcrIdActivity;
 
@@ -32,32 +33,37 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        Bundle extras = data.getExtras();
-        if(resultCode == Activity.RESULT_OK && requestCode == OCR_REQUEST && extras!=null){
-            Boolean is_ine = extras.getBoolean("IS_INE");
-            String name = extras.getString("NAME");
-            String lastName = extras.getString("LAST_NAME");
-            String motherLastName = extras.getString("M_LAST_NAME");
-            String curp = extras.getString("CURP");
-            String address = extras.getString("ADDRESS");
-            String elector = extras.getString("ELECTOR");
-            String state = extras.getString("STATE");
-            String town = extras.getString("TOWN");
-            String section = extras.getString("SECTION");
-            String id = extras.getString("ID");
-            Uri uri1 = Uri.parse(extras.getString("URI1"));
-            Uri uri2 = Uri.parse(extras.getString("URI2"));
-            String showResult = "Nombre: "+name+
-                    "\nApellido Paterno: "+lastName+
-                    "\nApellido Materno: "+motherLastName+
-                    "\nCurp: "+curp+
-                    "\nDirección: "+address+
-                    "\nClave de elector: "+elector+
-                    "\nEstado: "+state+
-                    "\nMunicipio: "+town+
-                    "\nSección: "+section+
-                    "\nOCR: "+id;
-            showResult(showResult);
+        //Bundle extras = data.getExtras();
+        if(resultCode == Activity.RESULT_OK && requestCode == OCR_REQUEST){
+            if(data != null){
+                Boolean is_ine = data.getBooleanExtra("IS_INE", false);
+                String name = data.getStringExtra("NAME");
+                String lastName = data.getStringExtra("LAST_NAME");
+                String motherLastName = data.getStringExtra("M_LAST_NAME");
+                String curp = data.getStringExtra("CURP");
+                String address = data.getStringExtra("ADDRESS");
+                String elector = data.getStringExtra("ELECTOR");
+                String state = data.getStringExtra("STATE");
+                String town = data.getStringExtra("TOWN");
+                String section = data.getStringExtra("SECTION");
+                String id = data.getStringExtra("ID");
+                Uri uri1 = Uri.parse(data.getStringExtra("URI1"));
+                Uri uri2 = Uri.parse(data.getStringExtra("URI2"));
+                String showResult = "Nombre: "+name+
+                        "\nApellido Paterno: "+lastName+
+                        "\nApellido Materno: "+motherLastName+
+                        "\nCurp: "+curp+
+                        "\nDirección: "+address+
+                        "\nClave de elector: "+elector+
+                        "\nEstado: "+state+
+                        "\nMunicipio: "+town+
+                        "\nSección: "+section+
+                        "\nOCR: "+id;
+                showResult(showResult);
+            }else{
+                Toast.makeText(this, "Data de retorno es null", Toast.LENGTH_SHORT).show();
+            }
+
         }
     }
 

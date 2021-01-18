@@ -1,0 +1,306 @@
+# compiler: R8
+# compiler_version: 2.1.75
+# pg_map_id: d8f1f6d
+# common_typos_disable
+mx.brandonvargas.ocrforid.BuildConfig -> mx.brandonvargas.ocrforid.BuildConfig:
+    7:7:void <clinit>() -> <clinit>
+    6:6:void <init>() -> <init>
+mx.brandonvargas.ocrforid.OcrIdActivity -> mx.brandonvargas.ocrforid.OcrIdActivity:
+    int type -> o
+    com.google.android.gms.vision.MultiDetector multiDetector -> e
+    mx.brandonvargas.ocrforid.camera.GraphicOverlay mGraphicOverlay -> d
+    boolean backTaked -> q
+    boolean isFlashOn -> r
+    boolean firstTime -> s
+    android.widget.Button shoot -> i
+    android.widget.ImageView mImageViewFlash -> g
+    androidx.percentlayout.widget.PercentRelativeLayout rectangleIneBack -> l
+    androidx.percentlayout.widget.PercentRelativeLayout detectShape -> m
+    com.google.android.gms.vision.text.TextRecognizer textRecognizer -> f
+    androidx.percentlayout.widget.PercentRelativeLayout rectangleIfeFront -> j
+    android.widget.TextView textView1 -> h
+    androidx.percentlayout.widget.PercentRelativeLayout rectangleIfeBack -> k
+    android.app.ProgressDialog indeterminateDialog -> n
+    android.net.Uri uri1 -> t
+    boolean isSamsung -> a
+    mx.brandonvargas.ocrforid.camera.CameraSource mCameraSource -> b
+    mx.brandonvargas.ocrforid.camera.CameraSourcePreview mPreview -> c
+    int faceSide -> p
+    94:123:void <init>() -> <init>
+    94:94:android.widget.Button access$000(mx.brandonvargas.ocrforid.OcrIdActivity) -> a
+    94:94:void access$100(mx.brandonvargas.ocrforid.OcrIdActivity,byte[]) -> a
+    139:157:java.io.File getOutputMediaFile() -> a
+    244:296:void createCameraSource(boolean,boolean) -> a
+    426:467:void processImage(byte[]) -> a
+    521:530:void uCrop(android.net.Uri) -> a
+    566:640:void performOCRIFE(int,android.net.Uri,android.net.Uri) -> a
+    657:672:java.lang.String extractAddressIFE(java.lang.String) -> a
+    754:780:java.lang.String performOCR(android.graphics.Bitmap) -> a
+    94:94:mx.brandonvargas.ocrforid.camera.CameraSource access$200(mx.brandonvargas.ocrforid.OcrIdActivity) -> b
+    129:129:android.net.Uri getOutputMediaFileUri() -> b
+    643:653:java.lang.String extractIdIFE(java.lang.String) -> b
+    203:227:void requestCameraPermission() -> c
+    705:721:java.lang.String[] extractNameIFE(java.lang.String) -> c
+    483:518:void checkType() -> checkType
+    533:538:void showProgressDialog() -> d
+    389:423:void startCameraSource() -> e
+    785:786:void finishActivity(android.view.View) -> finishActivity
+    732:750:android.graphics.Bitmap getBitmapCroppedFromUri(android.net.Uri,mx.brandonvargas.ocrforid.util.Percentage,boolean) -> getBitmapCroppedFromUri
+    725:728:android.net.Uri getImageUri(android.content.Context,android.graphics.Bitmap) -> getImageUri
+    542:562:void onActivityResult(int,int,android.content.Intent) -> onActivityResult
+    165:195:void onCreate(android.os.Bundle) -> onCreate
+    325:329:void onDestroy() -> onDestroy
+    313:317:void onPause() -> onPause
+    351:380:void onRequestPermissionsResult(int,java.lang.String[],int[]) -> onRequestPermissionsResult
+    303:306:void onResume() -> onResume
+    231:231:boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
+    476:480:void setFaceSide(int) -> setFaceSide
+    471:472:void setType(int) -> setType
+    789:799:void toggleFlash(android.view.View) -> toggleFlash
+mx.brandonvargas.ocrforid.OcrIdActivity$1 -> mx.brandonvargas.ocrforid.OcrIdActivity$a:
+    android.app.Activity val$thisActivity -> a
+    java.lang.String[] val$permissions -> b
+    215:215:void <init>(mx.brandonvargas.ocrforid.OcrIdActivity,android.app.Activity,java.lang.String[]) -> <init>
+    218:220:void onClick(android.view.View) -> onClick
+mx.brandonvargas.ocrforid.OcrIdActivity$2 -> mx.brandonvargas.ocrforid.OcrIdActivity$b:
+    mx.brandonvargas.ocrforid.OcrIdActivity this$0 -> a
+    369:369:void <init>(mx.brandonvargas.ocrforid.OcrIdActivity) -> <init>
+    371:372:void onClick(android.content.DialogInterface,int) -> onClick
+mx.brandonvargas.ocrforid.OcrIdActivity$3 -> mx.brandonvargas.ocrforid.OcrIdActivity$c:
+    mx.brandonvargas.ocrforid.OcrIdActivity this$0 -> a
+    401:401:void <init>(mx.brandonvargas.ocrforid.OcrIdActivity) -> <init>
+    404:415:void onClick(android.view.View) -> onClick
+mx.brandonvargas.ocrforid.OcrIdActivity$3$1 -> mx.brandonvargas.ocrforid.OcrIdActivity$c$a:
+    mx.brandonvargas.ocrforid.OcrIdActivity$3 this$1 -> a
+    404:404:void <init>(mx.brandonvargas.ocrforid.OcrIdActivity$3) -> <init>
+    407:408:void onShutter() -> onShutter
+mx.brandonvargas.ocrforid.OcrIdActivity$3$2 -> mx.brandonvargas.ocrforid.OcrIdActivity$c$b:
+    mx.brandonvargas.ocrforid.OcrIdActivity$3 this$1 -> a
+    409:409:void <init>(mx.brandonvargas.ocrforid.OcrIdActivity$3) -> <init>
+    412:413:void onPictureTaken(byte[]) -> onPictureTaken
+mx.brandonvargas.ocrforid.camera.CameraSource -> mx.brandonvargas.ocrforid.camera.CameraSource:
+    android.content.Context mContext -> b
+    java.lang.String mFlashMode -> k
+    float mRequestedFps -> g
+    java.lang.String mFocusMode -> j
+    mx.brandonvargas.ocrforid.camera.CameraSource$FrameProcessingRunnable mFrameProcessor -> o
+    int mRequestedPreviewWidth -> h
+    int mRequestedPreviewHeight -> i
+    java.util.Map mBytesToByteBuffer -> p
+    int mFacing -> d
+    int mRotation -> e
+    android.view.SurfaceView mDummySurfaceView -> l
+    android.graphics.SurfaceTexture mDummySurfaceTexture -> m
+    java.lang.Thread mProcessingThread -> n
+    android.hardware.Camera mCamera -> c
+    java.lang.Object mCameraLock -> a
+    com.google.android.gms.common.images.Size mPreviewSize -> f
+    74:74:void <init>(mx.brandonvargas.ocrforid.camera.CameraSource$1) -> <init>
+    93:132:void <init>() -> <init>
+    74:74:android.content.Context access$1002(mx.brandonvargas.ocrforid.camera.CameraSource,android.content.Context) -> a
+    74:74:float access$1102(mx.brandonvargas.ocrforid.camera.CameraSource,float) -> a
+    74:74:java.lang.String access$1202(mx.brandonvargas.ocrforid.camera.CameraSource,java.lang.String) -> a
+    74:74:int access$1402(mx.brandonvargas.ocrforid.camera.CameraSource,int) -> a
+    74:74:mx.brandonvargas.ocrforid.camera.CameraSource$FrameProcessingRunnable access$1700(mx.brandonvargas.ocrforid.camera.CameraSource) -> a
+    74:74:mx.brandonvargas.ocrforid.camera.CameraSource$FrameProcessingRunnable access$1702(mx.brandonvargas.ocrforid.camera.CameraSource,mx.brandonvargas.ocrforid.camera.CameraSource$FrameProcessingRunnable) -> a
+    141:148:int getIdForRequestedCamera(int) -> a
+    169:187:mx.brandonvargas.ocrforid.camera.CameraSource$SizePair selectSizePair(android.hardware.Camera,int,int) -> a
+    204:236:java.util.List generateValidPreviewSizeList(android.hardware.Camera) -> a
+    619:690:android.hardware.Camera createCamera() -> a
+    704:723:int[] selectPreviewFpsRange(android.hardware.Camera,float) -> a
+    734:773:void setRotation(android.hardware.Camera,android.hardware.Camera$Parameters,int) -> a
+    786:805:byte[] createPreviewBuffer(com.google.android.gms.common.images.Size) -> a
+    557:567:void autoFocus(mx.brandonvargas.ocrforid.camera.CameraSource$AutoFocusCallback) -> autoFocus
+    74:74:java.lang.String access$1302(mx.brandonvargas.ocrforid.camera.CameraSource,java.lang.String) -> b
+    74:74:int access$1502(mx.brandonvargas.ocrforid.camera.CameraSource,int) -> b
+    74:74:java.lang.Object access$1800(mx.brandonvargas.ocrforid.camera.CameraSource) -> b
+    74:74:int access$1602(mx.brandonvargas.ocrforid.camera.CameraSource,int) -> c
+    74:74:android.hardware.Camera access$1900(mx.brandonvargas.ocrforid.camera.CameraSource) -> c
+    578:583:void cancelAutoFocus() -> cancelAutoFocus
+    74:74:java.lang.Thread access$2000(mx.brandonvargas.ocrforid.camera.CameraSource) -> d
+    379:408:int doZoom(float) -> doZoom
+    74:74:java.util.Map access$2100(mx.brandonvargas.ocrforid.camera.CameraSource) -> e
+    74:74:int access$2200(mx.brandonvargas.ocrforid.camera.CameraSource) -> f
+    74:74:com.google.android.gms.common.images.Size access$2300(mx.brandonvargas.ocrforid.camera.CameraSource) -> g
+    375:375:int getCameraFacing() -> getCameraFacing
+    511:511:java.lang.String getFlashMode() -> getFlashMode
+    471:471:java.lang.String getFocusMode() -> getFocusMode
+    367:367:com.google.android.gms.common.images.Size getPreviewSize() -> getPreviewSize
+    243:247:void release() -> release
+    594:609:boolean setAutoFocusMoveCallback(mx.brandonvargas.ocrforid.camera.CameraSource$AutoFocusMoveCallback) -> setAutoFocusMoveCallback
+    522:534:boolean setFlashMode(java.lang.String) -> setFlashMode
+    482:494:boolean setFocusMode(java.lang.String) -> setFocusMode
+    257:279:mx.brandonvargas.ocrforid.camera.CameraSource start() -> start
+    291:304:mx.brandonvargas.ocrforid.camera.CameraSource start(android.view.SurfaceHolder) -> start
+    321:361:void stop() -> stop
+    421:452:void takePicture(mx.brandonvargas.ocrforid.camera.CameraSource$ShutterCallback,mx.brandonvargas.ocrforid.camera.CameraSource$PictureCallback) -> takePicture
+mx.brandonvargas.ocrforid.camera.CameraSource$1 -> mx.brandonvargas.ocrforid.camera.CameraSource$a:
+mx.brandonvargas.ocrforid.camera.CameraSource$Builder -> mx.brandonvargas.ocrforid.camera.CameraSource$Builder:
+    mx.brandonvargas.ocrforid.camera.CameraSource mCameraSource -> b
+    com.google.android.gms.vision.Detector mDetector -> a
+    896:912:void <init>(android.content.Context,com.google.android.gms.vision.Detector) -> <init>
+    971:972:mx.brandonvargas.ocrforid.camera.CameraSource build() -> build
+    960:964:mx.brandonvargas.ocrforid.camera.CameraSource$Builder setFacing(int) -> setFacing
+    932:933:mx.brandonvargas.ocrforid.camera.CameraSource$Builder setFlashMode(java.lang.String) -> setFlashMode
+    927:928:mx.brandonvargas.ocrforid.camera.CameraSource$Builder setFocusMode(java.lang.String) -> setFocusMode
+    919:923:mx.brandonvargas.ocrforid.camera.CameraSource$Builder setRequestedFps(float) -> setRequestedFps
+    946:952:mx.brandonvargas.ocrforid.camera.CameraSource$Builder setRequestedPreviewSize(int,int) -> setRequestedPreviewSize
+mx.brandonvargas.ocrforid.camera.CameraSource$CameraAutoFocusCallback -> mx.brandonvargas.ocrforid.camera.CameraSource$b:
+    mx.brandonvargas.ocrforid.camera.CameraSource$AutoFocusCallback mDelegate -> a
+    1041:1041:void <init>(mx.brandonvargas.ocrforid.camera.CameraSource) -> <init>
+    1041:1041:void <init>(mx.brandonvargas.ocrforid.camera.CameraSource,mx.brandonvargas.ocrforid.camera.CameraSource$1) -> <init>
+    1041:1041:mx.brandonvargas.ocrforid.camera.CameraSource$AutoFocusCallback access$502(mx.brandonvargas.ocrforid.camera.CameraSource$CameraAutoFocusCallback,mx.brandonvargas.ocrforid.camera.CameraSource$AutoFocusCallback) -> a
+    1046:1049:void onAutoFocus(boolean,android.hardware.Camera) -> onAutoFocus
+mx.brandonvargas.ocrforid.camera.CameraSource$CameraAutoFocusMoveCallback -> mx.brandonvargas.ocrforid.camera.CameraSource$c:
+    mx.brandonvargas.ocrforid.camera.CameraSource$AutoFocusMoveCallback mDelegate -> a
+    1056:1056:void <init>(mx.brandonvargas.ocrforid.camera.CameraSource) -> <init>
+    1056:1056:void <init>(mx.brandonvargas.ocrforid.camera.CameraSource,mx.brandonvargas.ocrforid.camera.CameraSource$1) -> <init>
+    1056:1056:mx.brandonvargas.ocrforid.camera.CameraSource$AutoFocusMoveCallback access$702(mx.brandonvargas.ocrforid.camera.CameraSource$CameraAutoFocusMoveCallback,mx.brandonvargas.ocrforid.camera.CameraSource$AutoFocusMoveCallback) -> a
+    1061:1064:void onAutoFocusMoving(boolean,android.hardware.Camera) -> onAutoFocusMoving
+mx.brandonvargas.ocrforid.camera.CameraSource$CameraPreviewCallback -> mx.brandonvargas.ocrforid.camera.CameraSource$d:
+    mx.brandonvargas.ocrforid.camera.CameraSource this$0 -> a
+    1074:1074:void <init>(mx.brandonvargas.ocrforid.camera.CameraSource) -> <init>
+    1074:1074:void <init>(mx.brandonvargas.ocrforid.camera.CameraSource,mx.brandonvargas.ocrforid.camera.CameraSource$1) -> <init>
+    1077:1078:void onPreviewFrame(byte[],android.hardware.Camera) -> onPreviewFrame
+mx.brandonvargas.ocrforid.camera.CameraSource$FrameProcessingRunnable -> mx.brandonvargas.ocrforid.camera.CameraSource$e:
+    boolean $assertionsDisabled -> i
+    long mPendingTimeMillis -> e
+    java.nio.ByteBuffer mPendingFrameData -> g
+    mx.brandonvargas.ocrforid.camera.CameraSource this$0 -> h
+    int mPendingFrameId -> f
+    java.lang.Object mLock -> a
+    long mStartTimeMillis -> c
+    com.google.android.gms.vision.Detector mDetector -> b
+    boolean mActive -> d
+    1091:1091:void <clinit>() -> <clinit>
+    1093:1105:void <init>(mx.brandonvargas.ocrforid.camera.CameraSource,com.google.android.gms.vision.Detector) -> <init>
+    1113:1116:void release() -> a
+    1122:1126:void setActive(boolean) -> a
+    1134:1156:void setNextFrame(byte[],android.hardware.Camera) -> a
+    1178:1223:void run() -> run
+mx.brandonvargas.ocrforid.camera.CameraSource$PictureDoneCallback -> mx.brandonvargas.ocrforid.camera.CameraSource$f:
+    mx.brandonvargas.ocrforid.camera.CameraSource$PictureCallback mDelegate -> a
+    mx.brandonvargas.ocrforid.camera.CameraSource this$0 -> b
+    1022:1022:void <init>(mx.brandonvargas.ocrforid.camera.CameraSource) -> <init>
+    1022:1022:void <init>(mx.brandonvargas.ocrforid.camera.CameraSource,mx.brandonvargas.ocrforid.camera.CameraSource$1) -> <init>
+    1022:1022:mx.brandonvargas.ocrforid.camera.CameraSource$PictureCallback access$302(mx.brandonvargas.ocrforid.camera.CameraSource$PictureDoneCallback,mx.brandonvargas.ocrforid.camera.CameraSource$PictureCallback) -> a
+    1027:1035:void onPictureTaken(byte[],android.hardware.Camera) -> onPictureTaken
+mx.brandonvargas.ocrforid.camera.CameraSource$PictureStartCallback -> mx.brandonvargas.ocrforid.camera.CameraSource$g:
+    mx.brandonvargas.ocrforid.camera.CameraSource$ShutterCallback mDelegate -> a
+    1007:1007:void <init>(mx.brandonvargas.ocrforid.camera.CameraSource) -> <init>
+    1007:1007:void <init>(mx.brandonvargas.ocrforid.camera.CameraSource,mx.brandonvargas.ocrforid.camera.CameraSource$1) -> <init>
+    1007:1007:mx.brandonvargas.ocrforid.camera.CameraSource$ShutterCallback access$102(mx.brandonvargas.ocrforid.camera.CameraSource$PictureStartCallback,mx.brandonvargas.ocrforid.camera.CameraSource$ShutterCallback) -> a
+    1012:1015:void onShutter() -> onShutter
+mx.brandonvargas.ocrforid.camera.CameraSource$SizePair -> mx.brandonvargas.ocrforid.camera.CameraSource$h:
+    com.google.android.gms.common.images.Size mPreview -> a
+    com.google.android.gms.common.images.Size mPicture -> b
+    987:992:void <init>(android.hardware.Camera$Size,android.hardware.Camera$Size) -> <init>
+    1000:1000:com.google.android.gms.common.images.Size pictureSize() -> a
+    995:995:com.google.android.gms.common.images.Size previewSize() -> b
+mx.brandonvargas.ocrforid.camera.CameraSourcePreview -> mx.brandonvargas.ocrforid.camera.CameraSourcePreview:
+    android.content.Context mContext -> a
+    mx.brandonvargas.ocrforid.camera.CameraSource mCameraSource -> e
+    android.view.SurfaceView mSurfaceView -> b
+    boolean mStartRequested -> c
+    mx.brandonvargas.ocrforid.camera.GraphicOverlay mOverlay -> f
+    boolean mSurfaceAvailable -> d
+    44:52:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    32:32:boolean access$102(mx.brandonvargas.ocrforid.camera.CameraSourcePreview,boolean) -> a
+    32:32:void access$200(mx.brandonvargas.ocrforid.camera.CameraSourcePreview) -> a
+    169:178:boolean isPortraitMode() -> a
+    89:106:void startIfReady() -> b
+    110:166:void onLayout(boolean,int,int,int,int) -> onLayout
+    81:85:void release() -> release
+    56:66:void start(mx.brandonvargas.ocrforid.camera.CameraSource) -> start
+    70:72:void start(mx.brandonvargas.ocrforid.camera.CameraSource,mx.brandonvargas.ocrforid.camera.GraphicOverlay) -> start
+    75:78:void stop() -> stop
+mx.brandonvargas.ocrforid.camera.CameraSourcePreview$1 -> mx.brandonvargas.ocrforid.camera.CameraSourcePreview$a:
+mx.brandonvargas.ocrforid.camera.CameraSourcePreview$SurfaceCallback -> mx.brandonvargas.ocrforid.camera.CameraSourcePreview$b:
+    mx.brandonvargas.ocrforid.camera.CameraSourcePreview this$0 -> a
+    181:181:void <init>(mx.brandonvargas.ocrforid.camera.CameraSourcePreview) -> <init>
+    181:181:void <init>(mx.brandonvargas.ocrforid.camera.CameraSourcePreview,mx.brandonvargas.ocrforid.camera.CameraSourcePreview$1) -> <init>
+    201:201:void surfaceChanged(android.view.SurfaceHolder,int,int,int) -> surfaceChanged
+    184:192:void surfaceCreated(android.view.SurfaceHolder) -> surfaceCreated
+    196:197:void surfaceDestroyed(android.view.SurfaceHolder) -> surfaceDestroyed
+mx.brandonvargas.ocrforid.camera.GraphicOverlay -> mx.brandonvargas.ocrforid.camera.GraphicOverlay:
+    java.util.Set mGraphics -> g
+    float mHeightScaleFactor -> e
+    int mFacing -> f
+    float mWidthScaleFactor -> c
+    int mPreviewHeight -> d
+    java.lang.Object mLock -> a
+    int mPreviewWidth -> b
+    45:55:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    44:44:float access$000(mx.brandonvargas.ocrforid.camera.GraphicOverlay) -> a
+    71:75:void add(mx.brandonvargas.ocrforid.camera.GraphicOverlay$Graphic) -> add
+    44:44:float access$100(mx.brandonvargas.ocrforid.camera.GraphicOverlay) -> b
+    44:44:int access$200(mx.brandonvargas.ocrforid.camera.GraphicOverlay) -> c
+    61:65:void clear() -> clear
+    94:104:mx.brandonvargas.ocrforid.camera.GraphicOverlay$Graphic getGraphicAtLocation(float,float) -> getGraphicAtLocation
+    125:137:void onDraw(android.graphics.Canvas) -> onDraw
+    81:85:void remove(mx.brandonvargas.ocrforid.camera.GraphicOverlay$Graphic) -> remove
+    112:118:void setCameraInfo(int,int,int) -> setCameraInfo
+mx.brandonvargas.ocrforid.camera.GraphicOverlay$Graphic -> mx.brandonvargas.ocrforid.camera.GraphicOverlay$Graphic:
+    mx.brandonvargas.ocrforid.camera.GraphicOverlay mOverlay -> a
+    147:149:void <init>(mx.brandonvargas.ocrforid.camera.GraphicOverlay) -> <init>
+    206:207:void postInvalidate() -> postInvalidate
+    175:175:float scaleX(float) -> scaleX
+    182:182:float scaleY(float) -> scaleY
+    190:193:float translateX(float) -> translateX
+    202:202:float translateY(float) -> translateY
+mx.brandonvargas.ocrforid.modifiedGoogleCode.FaceGraphic -> mx.brandonvargas.ocrforid.modifiedGoogleCode.a:
+    mx.brandonvargas.ocrforid.util.DocumentIdentifier documentIdentifier -> b
+    com.google.android.gms.vision.face.Face mFace -> c
+    61:63:void <init>(mx.brandonvargas.ocrforid.camera.GraphicOverlay,mx.brandonvargas.ocrforid.util.DocumentIdentifier) -> <init>
+    53:53:void updateItem(java.lang.Object) -> a
+    70:72:void updateItem(com.google.android.gms.vision.face.Face) -> a
+    96:96:boolean contains(float,float) -> contains
+    79:92:void draw(android.graphics.Canvas) -> draw
+mx.brandonvargas.ocrforid.modifiedGoogleCode.FaceTrackerFactory -> mx.brandonvargas.ocrforid.modifiedGoogleCode.FaceTrackerFactory:
+    mx.brandonvargas.ocrforid.camera.GraphicOverlay mGraphicOverlay -> a
+    mx.brandonvargas.ocrforid.util.DocumentIdentifier documentIdentifier -> b
+    37:40:void <init>(mx.brandonvargas.ocrforid.camera.GraphicOverlay,mx.brandonvargas.ocrforid.util.DocumentIdentifier) -> <init>
+    33:33:com.google.android.gms.vision.Tracker create(java.lang.Object) -> create
+    44:45:com.google.android.gms.vision.Tracker create(com.google.android.gms.vision.face.Face) -> create
+mx.brandonvargas.ocrforid.modifiedGoogleCode.GraphicTracker -> mx.brandonvargas.ocrforid.modifiedGoogleCode.b:
+    mx.brandonvargas.ocrforid.modifiedGoogleCode.TrackedGraphic mGraphic -> b
+    mx.brandonvargas.ocrforid.camera.GraphicOverlay mOverlay -> a
+    34:37:void <init>(mx.brandonvargas.ocrforid.camera.GraphicOverlay,mx.brandonvargas.ocrforid.modifiedGoogleCode.TrackedGraphic) -> <init>
+    72:73:void onDone() -> onDone
+    63:64:void onMissing(com.google.android.gms.vision.Detector$Detections) -> onMissing
+    44:45:void onNewItem(int,java.lang.Object) -> onNewItem
+    52:54:void onUpdate(com.google.android.gms.vision.Detector$Detections,java.lang.Object) -> onUpdate
+mx.brandonvargas.ocrforid.modifiedGoogleCode.OcrDetectorProcessor -> mx.brandonvargas.ocrforid.modifiedGoogleCode.OcrDetectorProcessor:
+    mx.brandonvargas.ocrforid.camera.GraphicOverlay mGraphicOverlay -> a
+    mx.brandonvargas.ocrforid.util.DocumentIdentifier documentIdentifier -> b
+    41:44:void <init>(mx.brandonvargas.ocrforid.camera.GraphicOverlay,mx.brandonvargas.ocrforid.util.DocumentIdentifier) -> <init>
+    35:35:com.google.android.gms.vision.Tracker create(java.lang.Object) -> create
+    82:82:com.google.android.gms.vision.Tracker create(com.google.android.gms.vision.face.Face) -> create
+    55:70:void receiveDetections(com.google.android.gms.vision.Detector$Detections) -> receiveDetections
+    77:78:void release() -> release
+mx.brandonvargas.ocrforid.modifiedGoogleCode.OcrGraphic -> mx.brandonvargas.ocrforid.modifiedGoogleCode.OcrGraphic:
+    android.graphics.Paint sTextPaint -> e
+    android.graphics.Paint sRectPaint -> d
+    com.google.android.gms.vision.text.TextBlock mText -> b
+    int mId -> c
+    85:93:boolean contains(float,float) -> contains
+    101:120:void draw(android.graphics.Canvas) -> draw
+    65:65:int getId() -> getId
+    73:73:com.google.android.gms.vision.text.TextBlock getTextBlock() -> getTextBlock
+    69:70:void setId(int) -> setId
+mx.brandonvargas.ocrforid.modifiedGoogleCode.TrackedGraphic -> mx.brandonvargas.ocrforid.modifiedGoogleCode.c:
+    30:31:void <init>(mx.brandonvargas.ocrforid.camera.GraphicOverlay) -> <init>
+    void updateItem(java.lang.Object) -> a
+    38:39:void setId(int) -> setId
+mx.brandonvargas.ocrforid.util.Constants -> mx.brandonvargas.ocrforid.util.Constants:
+    6:6:void <init>() -> <init>
+mx.brandonvargas.ocrforid.util.Percentage -> mx.brandonvargas.ocrforid.util.Percentage:
+    12:17:void <init>(float,float,float,float) -> <init>
+    20:20:float getHeight() -> getHeight
+    28:28:float getWidth() -> getWidth
+    36:36:float getX() -> getX
+    44:44:float getY() -> getY
+    24:25:void setHeight(float) -> setHeight
+    32:33:void setWidth(float) -> setWidth
+    40:41:void setX(float) -> setX
+    48:49:void setY(float) -> setY

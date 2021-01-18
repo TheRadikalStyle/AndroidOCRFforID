@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
-                 xmlns:tools="http://schemas.android.com/tools"
-                 android:drawable="@drawable/ucrop_vector_loader"
-                 tools:targetApi="lollipop"
-    >
+                 android:drawable="@drawable/ucrop_vector_loader">
     <target
         android:name="circleGroup"
         android:animation="@anim/ucrop_loader_circle_scale"/>

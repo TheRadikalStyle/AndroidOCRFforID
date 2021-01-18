@@ -3,25 +3,22 @@ package com.yalantis.ucrop.view;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Matrix;
-import android.graphics.Point;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
-import android.os.Build;
-import android.support.annotation.IntRange;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.view.Display;
-import android.view.WindowManager;
-import android.widget.ImageView;
 
 import com.yalantis.ucrop.callback.BitmapLoadCallback;
+import com.yalantis.ucrop.model.ExifInfo;
 import com.yalantis.ucrop.util.BitmapLoadUtils;
 import com.yalantis.ucrop.util.FastBitmapDrawable;
 import com.yalantis.ucrop.util.RectUtils;
 
+import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatImageView;
 
 /**
  * Created by Oleksii Shliama (https://github.com/shliama).
@@ -29,7 +26,7 @@ import com.yalantis.ucrop.util.RectUtils;
  * This class provides base logic to setup the image, transform it with matrix (move, scale, rotate),
  * and methods to get current matrix state.
  */
-public class TransformImageView extends ImageView {
+public class TransformImageView extends AppCompatImageView {
 
     private static final String TAG = "TransformImageView";
 
@@ -50,10 +47,13 @@ public class TransformImageView extends ImageView {
     private float[] mInitialImageCorners;
     private float[] mInitialImageCenter;
 
-    private boolean mBitmapWasLoaded = false;
+    protected boolean mBitmapDecoded = false;
+    protected boolean mBitmapLaidOut = false;
 
     private int mMaxBitmapSize = 0;
-    private Uri mImageUri;
+
+    private String mImageInputPath, mImageOutputPath;
+    private ExifInfo mExifInfo;
 
     /**
      * Interface for rotation and scale change notifying.
@@ -108,7 +108,7 @@ public class TransformImageView extends ImageView {
 
     public int getMaxBitmapSize() {
         if (mMaxBitmapSize <= 0) {
-            mMaxBitmapSize = calculateMaxBitmapSize();
+            mMaxBitmapSize = BitmapLoadUtils.calculateMaxBitmapSize(getContext());
         }
         return mMaxBitmapSize;
     }
@@ -118,9 +118,16 @@ public class TransformImageView extends ImageView {
         setImageDrawable(new FastBitmapDrawable(bitmap));
     }
 
-    @Nullable
-    public Uri getImageUri() {
-        return mImageUri;
+    public String getImageInputPath() {
+        return mImageInputPath;
+    }
+
+    public String getImageOutputPath() {
+        return mImageOutputPath;
+    }
+
+    public ExifInfo getExifInfo() {
+        return mExifInfo;
     }
 
     /**
@@ -129,17 +136,20 @@ public class TransformImageView extends ImageView {
      * @param imageUri - image Uri
      * @throws Exception - can throw exception if having problems with decoding Uri or OOM.
      */
-    public void setImageUri(@NonNull Uri imageUri, @NonNull Uri outputUri) throws Exception {
-        mImageUri = imageUri;
+    public void setImageUri(@NonNull Uri imageUri, @Nullable Uri outputUri) throws Exception {
         int maxBitmapSize = getMaxBitmapSize();
 
         BitmapLoadUtils.decodeBitmapInBackground(getContext(), imageUri, outputUri, maxBitmapSize, maxBitmapSize,
                 new BitmapLoadCallback() {
+
                     @Override
-                    public void onBitmapLoaded(@NonNull final Bitmap bitmap) {
-                        mBitmapWasLoaded = true;
+                    public void onBitmapLoaded(@NonNull Bitmap bitmap, @NonNull ExifInfo exifInfo, @NonNull String imageInputPath, @Nullable String imageOutputPath) {
+                        mImageInputPath = imageInputPath;
+                        mImageOutputPath = imageOutputPath;
+                        mExifInfo = exifInfo;
+
+                        mBitmapDecoded = true;
                         setImageBitmap(bitmap);
-                        invalidate();
                     }
 
                     @Override
@@ -186,6 +196,7 @@ public class TransformImageView extends ImageView {
     @Override
     public void setImageMatrix(Matrix matrix) {
         super.setImageMatrix(matrix);
+        mCurrentImageMatrix.set(matrix);
         updateCurrentImagePoints();
     }
 
@@ -249,35 +260,10 @@ public class TransformImageView extends ImageView {
         setScaleType(ScaleType.MATRIX);
     }
 
-    /**
-     * This method calculates maximum size of both width and height of bitmap.
-     * It is the device screen diagonal for default implementation.
-     *
-     * @return - max bitmap size in pixels.
-     */
-    @SuppressWarnings({"SuspiciousNameCombination", "deprecation"})
-    protected int calculateMaxBitmapSize() {
-        WindowManager wm = (WindowManager) getContext().getSystemService(Context.WINDOW_SERVICE);
-        Display display = wm.getDefaultDisplay();
-
-        Point size = new Point();
-        int width, height;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR2) {
-            display.getSize(size);
-            width = size.x*2;
-            height = size.y*2;
-        } else {
-            width = display.getWidth();
-            height = display.getHeight();
-        }
-        return (int) Math.sqrt(Math.pow(width, 2) + Math.pow(height, 2));
-    }
-
     @Override
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
         super.onLayout(changed, left, top, right, bottom);
-        if (changed || mBitmapWasLoaded) {
-            if (mBitmapWasLoaded) mBitmapWasLoaded = false;
+        if (changed || (mBitmapDecoded && !mBitmapLaidOut)) {
 
             left = getPaddingLeft();
             top = getPaddingTop();
@@ -308,6 +294,8 @@ public class TransformImageView extends ImageView {
         RectF initialImageRect = new RectF(0, 0, w, h);
         mInitialImageCorners = RectUtils.getCornersFromRect(initialImageRect);
         mInitialImageCenter = RectUtils.getCenterFromRect(initialImageRect);
+
+        mBitmapLaidOut = true;
 
         if (mTransformImageListener != null) {
             mTransformImageListener.onLoadComplete();
